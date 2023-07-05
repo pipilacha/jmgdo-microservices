@@ -5,9 +5,9 @@
     "title": "Product Info",
     "description": "A sample API that uses Product Information microservice to provide CRUD operations"
   },
-  "host": "--Replace this with your host URL--",
+  "host": "127.0.0.1:5000/",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
@@ -38,7 +38,10 @@
             "description": "Product to add",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Product"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
             }
           }
         ],
