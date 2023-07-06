@@ -14,9 +14,26 @@ let USCities = JSON.parse(rawdata);
 let schema = buildSchema(`
     type Query {
         city(name: String): City
+        /* get the city with the name Miami, return city and state fields
+        {
+            city (name:"Miami"){
+                city
+                state
+            }
+        }
+        */
         cities(state: String): [City]
+        /* get the cities where state == Ohio, returns city and state fields
+            not passing state:"Ohio" returns all the cities
+        {
+            cities (state:"Ohio"){
+                city
+                state
+            }
+        }
+        */
     },
-    type City {
+    type City { //model of the object, only returns attributes defines here
         city: String
         state: String
     }
@@ -38,7 +55,7 @@ let getCities = function(args) {
     }
 }
 
-var root = {
+var root = { //maps the functions to the queries
     city: getCity,
     cities: getCities
 };
@@ -47,7 +64,7 @@ var root = {
 var app = express();
 app.use('/graphql', graphqlHTTP({
     schema: schema,
-    rootValue: root,
+    rootValue: root, //mapped functions with queries
     graphiql: true
 }));
 
