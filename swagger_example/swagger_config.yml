@@ -3,7 +3,7 @@ info:
   Version: '2.0'
   title: Task Organizer
   description: Organize and maintain tasks
-host: lavanyas-5000.theiadocker-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai
+host: 127.0.0.1:5000
 paths:
   /tasks:
     get:

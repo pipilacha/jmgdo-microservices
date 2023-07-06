@@ -5,7 +5,7 @@
       "title": "Task Organizer",
       "description": "Organize and maintain tasks"
     },
-    "host": "<Your application URL>",
+    "host": "http://127.0.0.1:5000/",
     "paths": {
       "/tasks": {
         "get": {
